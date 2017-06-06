@@ -64,3 +64,19 @@ for txt, val in languages:
                 value = val
                 ).pack(anchor = W)
 mainloop()#inicializa la ventana
+
+print("EJERCICIO NUMERO 7")
+from tkinter import*
+
+master = Tk()
+
+var1 = IntVar() #Declara variable de tipo entera
+#Checkbutton es para crear una caja de seleccion 
+Checkbutton(master, text = "Hombre", variable = var1).grid(row = 0,
+           sticky=W)
+var2 = IntVar() #se crea otra variable para otro crear otra caja con otro valor
+Checkbutton(master,text="Mujer",variable=var2).grid(row=1,
+           sticky=W)
+mainloop()
+# inicializa la ventana
+
