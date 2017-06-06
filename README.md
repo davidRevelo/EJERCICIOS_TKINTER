@@ -12,21 +12,17 @@ msg.config(bg='lightgreen',font=('times',24,'italic')) #bg: el color del fondo q
 msg.pack()
 mainloop()
 
-print("EJERCICIO NUMERO 9")
-"NOS PERMITE INGRESAR DATOS POR TECLADO"
-"OBTENER CADENAS DE TEXTO, POR PARTE DEL USUARIO"
-from Tkinter import*
 
-master=Tk()
-Label(master,text="First Name").grid(row=0)
-Label(master,text="Last Name").grid(row=1)
-
-e1=Entry(master) #Entry: aceptar cadenas de texto de una sola linea de un usuario
-e2=Entry(master)
-
-e1.grid(row=0,column=1)  #la posicion que deseamos fila, columna
-e2.grid(row=1,column=1)
+print("EJERCICIO NUMERO 4")
+from tkinter import * #llamamos a la libreria tkinter
+root = Tk()
+v = IntVar()
+Label(root, text="""Choose a programming language:""",justify = LEFT,padx = 20).pack() #Creamos un labeñ dando una justificaciopn en el espacio de la pantalla
+Radiobutton(root, text="Python",padx = 20, variable=v, value=1).pack(anchor=W) #Creamos los radiobutton igual justificando en un espacio en nuestra pantalla
+Radiobutton(root, text="Perl",padx = 20, variable=v, value=2).pack(anchor=W)
 mainloop()
+
+
 
 print("EJERCICIO NUMERO 5")
 from tkinter import*
@@ -80,3 +76,19 @@ Checkbutton(master,text="Mujer",variable=var2).grid(row=1,
 mainloop()
 # inicializa la ventana
 
+
+print("EJERCICIO NUMERO 9")
+"NOS PERMITE INGRESAR DATOS POR TECLADO"
+"OBTENER CADENAS DE TEXTO, POR PARTE DEL USUARIO"
+from Tkinter import*
+
+master=Tk()
+Label(master,text="First Name").grid(row=0)
+Label(master,text="Last Name").grid(row=1)
+
+e1=Entry(master) #Entry: aceptar cadenas de texto de una sola linea de un usuario
+e2=Entry(master)
+
+e1.grid(row=0,column=1)  #la posicion que deseamos fila, columna
+e2.grid(row=1,column=1)
+mainloop()
