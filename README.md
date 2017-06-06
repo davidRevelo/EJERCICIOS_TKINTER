@@ -1,5 +1,31 @@
 # EJERCICIOS_TKINTER
 
+print("EJERCICIO NUMERO 1")
+
+#Utilizamos las etiquetas para empezar a llenar una ventana vacia, son muy utiles
+# en la construccion de interfaces y formularios
+
+# Comenzamos importando el módulo Tkinter.
+# Contiene todas las clases, funciones y otras cosas necesarias para trabajar con el kit de herramientas Tk
+
+from tkinter import *
+
+#Inicializamos Tkinter, creamos un widget de raiz Tk
+root = Tk()
+
+# Creamos una etiqueta y la almacenamos en la variable etiqueta1
+
+etiqueta1=Label(root,  text="HOLA TKINTER!")
+
+# Utilizamos pack para ubicar nuestra etiqueta en la ventana
+
+etiqueta1.pack()   
+
+# El programa permanecera en el bucle de eventos hasta que cerremos la ventana
+root.mainloop()
+
+
+
 print("EJERCICIO NUMERO 2")
 "MENSAJE WIDGET"
 "SE UTILIZA PARA MOSTRAR MENSAJES DE TEXTO CORTOS"
@@ -11,6 +37,35 @@ msg.config(bg='lightgreen',font=('times',24,'italic')) #bg: el color del fondo q
 # font: es el mensaje de fondo tipo de letra, tañamo 
 msg.pack()
 mainloop()
+
+
+print("EJERCICIO NUMERO 3")
+
+#Comenzamos importando el modulo Tkinter
+from tkinter import *
+
+# Definimos la clase App 
+class App:
+# Definimos el metodo con la palabra def luego el nombre que le queremos dar al metodo
+# en este caso _init_  el cual inicializa los atributos del objetos que creamos ( se ejecuta inmediatamente luego de crear un objeto)
+# seguido de self el cual lo utilizamos para hacer referencia a los
+# atributos contenidos en la clase    
+
+ def __init__(self, master):
+        frame = Frame(master)   # Frame utiliza areas rectangulares de la pantalla donde master representa la ventana padre
+        frame.pack()   #Crea un marco
+        self.button = Button(frame, text="SALIR", fg="red",command=frame.quit)  # Le asignamos el valor (texto) al atributo button de la clase
+        self.button.pack(side=LEFT)  # le damos la ubicaion de la ventana
+        self.slogan = Button(frame,text="ENTRAR",command=self.write_slogan)
+        self.slogan.pack(side=LEFT)  #Posiciona la ventana en el lado indicado 
+        
+ def write_slogan(self):
+        print ("Estamos aprendiendo a usar Tkinter!")  # define un metodo que pasa como atributo 
+
+root = Tk()  #Inicializamos Tkinter, creamos un widget de raiz Tk
+app = App(root) #instanciamos la clase App
+root.mainloop() # El programa permanecera en el bucle de eventos hasta que cerremos la ventana
+
 
 
 print("EJERCICIO NUMERO 4")
