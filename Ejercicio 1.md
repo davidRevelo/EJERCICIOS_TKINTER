@@ -13,6 +13,7 @@ from tkinter import *
 #Inicializamos Tkinter, creamos un widget de raiz Tk
 
 root = Tk()
+
 # Creamos una etiqueta y la almacenamos en la variable etiqueta1
 
 etiqueta1=Label(root,  text="HOLA TKINTER!")
@@ -20,6 +21,7 @@ etiqueta1=Label(root,  text="HOLA TKINTER!")
 # Utilizamos pack para ubicar nuestra etiqueta en la ventana
 
 etiqueta1.pack()   
+
 # El programa permanecera en el bucle de eventos hasta que cerremos la ventana
 
 root.mainloop()
