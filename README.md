@@ -61,6 +61,38 @@ for txt, val in languages:
                 ).pack(anchor = W)
 mainloop()#inicializa la ventana
 
+
+print("EJERCICIO NUMERO 6")
+from tkinter import *
+root = Tk()
+v = IntVar()
+v.set(1)  # inicializa la seleccion de las opciones de os radiobutton
+languages = [
+        ("Python",1),
+        ("Perl",2),
+        ("Java",3),
+        ("C++",4),
+        ("C",5)
+]
+def ShowChoice():
+    print (v.get())
+
+Label(root,                                         #creamos un label y ajustamos en la pantalla
+      text="""Escoja un lenguaje de programación:""",
+      justify = LEFT,
+      padx = 20).pack()
+for txt, val in languages:    #Creacion de los botones como radiobutton ya que al presionar se quedara en ON
+    Radiobutton(root,
+                text=txt,
+                indicatoron =0,
+                width = 20,
+                padx = 20,
+                variable=v,
+                command=ShowChoice,
+                value=val).pack(anchor=W)
+mainloop()
+
+
 print("EJERCICIO NUMERO 7")
 from tkinter import*
 
