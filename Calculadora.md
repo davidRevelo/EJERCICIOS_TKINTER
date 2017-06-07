@@ -1,16 +1,18 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 """
 Created on Sat Jun  3 21:10:55 2017
 
-@author: Luis
+@author: 
 """
 
-from tkinter import *
+from tkinter import*
+import math
 
-def clic(numeros):
-    global operador
-    operador = operador + str(numeros)
-    tecla.set(operador)
+def botones(numeros):
+    global valor
+    valor=valor+str(numeros)
+    valores.set(valor)
+    
 
 def operaciones():
     global valor
@@ -19,45 +21,128 @@ def operaciones():
     valor=""
 
 def borrar():
-    global operador
-    operador=""
-    tecla.set("")
-
+    global valor
+    valor=""
+    valores.set('0')
     
-calculadora = Tk()
-calculadora.title("Calculadora con funciones trigonométricas")
-
-operador = ""
-tecla = StringVar()
-
+def sin():
+    global valor
+    valor = float (valor)
+    valor = str(math.sin (valor))
+    valores.set(valor)
     
+
+def cos():
+    global valor
+    valor = float (valor)    
+    valor = str(math.cos (valor)) 
+    valores.set(valor)
+
+def tan():
+    global valor
+    valor = float (valor)    
+    valor = str(math.tan (valor)) 
+    valores.set(valor)
+
+def sec():
+    global valor
+    valor = float (valor)    
+    valor = str(1/(math.cos (valor)))
+    valores.set(valor)
     
-resultado = Entry(calculadora, font= ("arial", 15,"bold"), text = tecla,  bd =30, insertwidth = 4, justify = "right").grid(columnspan = 5)
 
-btnc = Button(calculadora, padx= 15, bd =4,fg="black", font= ("arial", 15,"bold"), text = "sen").grid(row = 1, column=0)
-btns = Button(calculadora, padx= 15, bd =4,fg="black", font= ("arial", 15,"bold"), text = "cos").grid(row = 1, column=1)
-btnt = Button(calculadora, padx= 15, bd =4,fg="black", font= ("arial", 15,"bold"), text = "tan").grid(row = 1, column=2)
-btnc = Button(calculadora, padx= 10, bd =4,fg="black", font= ("arial", 15,"bold"), text = "C", command = borrar).grid(row = 1, column=3)
+def csc():
+    global valor
+    valor = float (valor)
+    valor = str(1/(math.sin (valor)))
+    valores.set(valor)
 
-btn7 = Button(calculadora, padx= 10, bd =4,fg="black", font= ("arial", 15,"bold"), text = "7", command = lambda:clic(7)).grid(row = 2, column=0) # lambda funcion anonima
-btn8 = Button(calculadora, padx= 10, bd =4,fg="black", font= ("arial", 15,"bold"), text = "8", command = lambda:clic(8)).grid(row = 2, column=1)
-btn9 = Button(calculadora, padx= 10, bd =4,fg="black", font= ("arial", 15,"bold"), text = "9", command = lambda:clic(9)).grid(row = 2, column=2)
-btnd = Button(calculadora, padx= 10, bd =4,fg="black", font= ("arial", 15,"bold"), text = "/", command=lambda:clic("/")).grid(row = 2, column=3)
+def cot():
+    global valor
+    valor = float (valor)    
+    valor = str(1/(math.tan (valor)))
+    valores.set(valor)
+    
+ventana=Tk()
+ventana.title("CALCULADORA CIENTIFICA")
+ventana.configure(bg = 'beige')
 
-btn6 = Button(calculadora, padx= 10, bd =4,fg="black", font= ("arial", 15,"bold"), text = "6", command = lambda:clic(6)).grid(row = 3, column=0)
-btn5 = Button(calculadora, padx= 10, bd =4,fg="black", font= ("arial", 15,"bold"), text = "5", command = lambda:clic(5)).grid(row = 3, column=1)
-btn4 = Button(calculadora, padx= 10, bd =4,fg="black", font= ("arial", 15,"bold"), text = "4", command = lambda:clic(4)).grid(row = 3, column=2)
-btnr = Button(calculadora, padx= 10, bd =4,fg="black", font= ("arial", 15,"bold"), text = "-",command=lambda:clic("-")).grid(row = 3, column=3)
+frame=Frame(ventana)
+frame.grid(column=0,row=4,padx=(30,30),pady=(30,30))
+frame.columnconfigure(0,weight=1)
+frame.rowconfigure(0,weight=1)
 
-btn3 = Button(calculadora, padx= 10, bd =4,fg="black", font= ("arial", 15,"bold"), text = "3", command = lambda:clic(3)).grid(row = 4, column=0)
-btn2 = Button(calculadora, padx= 10, bd =4,fg="black", font= ("arial", 15,"bold"), text = "2", command = lambda:clic(2)).grid(row = 4, column=1)
-btn1 = Button(calculadora, padx= 10, bd =4,fg="black", font= ("arial", 15,"bold"), text = "1", command = lambda:clic(1)).grid(row = 4, column=2)
-btns = Button(calculadora, padx= 10, bd =4,fg="black", font= ("arial", 15,"bold"), text = "+",command=lambda:clic("+")).grid(row = 4, column=3)
-
-btnp = Button(calculadora, padx= 10, bd =4,fg="black", font= ("arial", 15,"bold"), text = ".",command=lambda:clic('.')).grid(row = 5, column=0)
-btni = Button(calculadora, padx= 10, bd =4,fg="black", font= ("arial", 15,"bold"), text = "=",command = operaciones).grid(row = 5, column=1)
-btn0 = Button(calculadora, padx= 10, bd =4,fg="black", font= ("arial", 15,"bold"), text = "0", command = lambda:clic(0)).grid(row = 5, column=2)
-btnm = Button(calculadora, padx= 10, bd =4,fg="black", font= ("arial", 15,"bold"), text = "x",command=lambda:clic("*")).grid(row = 5, column=3)
+Label(ventana,text="CALCULADORA").grid(column=0,row=3)
 
 
-calculadora.mainloop() 
+valor=""
+valores=StringVar()
+pantalla=Entry(frame,width=22,textvariable=valores,justify='right')
+pantalla.grid(column=1,row=1,columnspan=5)
+valores.set('0')
+
+
+b1=Button(frame,text='1',width=3,command=lambda:botones(1))
+b1.grid(column=1,row=4)
+b2=Button(frame,text='2',width=3,command=lambda:botones(2))
+b2.grid(column=2,row=4)
+b3=Button(frame,text='3',width=3,command=lambda:botones(3))
+b3.grid(column=3,row=4)
+b4=Button(frame,text='4',width=3,command=lambda:botones(4))
+b4.grid(column=1,row=3)
+b5=Button(frame,text='5',width=3,command=lambda:botones(5))
+b5.grid(column=2,row=3)
+b6=Button(frame,text='6',width=3,command=lambda:botones(6))
+b6.grid(column=3,row=3)
+b7 =Button(frame,text='7',width=3,command=lambda:botones(7))
+b7.grid(column=1,row=2)
+b8 =Button(frame,text='8',width=3,command=lambda:botones(8))
+b8.grid(column=2,row=2)
+borra=Button(frame,text='DEL',width=3,command=borrar)
+borra.grid(column=5,row=2)
+b9 =Button(frame,text='9',width=3,command=lambda:botones(9))
+b9.grid(column=3,row=2)
+b0=Button(frame,text='0',width=3,command=lambda:botones(0))
+b0.grid(column=1,row=5)
+
+suma=Button(frame,text='+',width=3,command=lambda:botones("+"))
+suma.grid(column=5,row=4)
+
+resta=Button(frame,text='-',width=3,command=lambda:botones("-"))
+resta.grid(column=4,row=4)
+
+igual=Button(frame,text='=',width=12,command=operaciones)
+igual.grid(column=3,row=5,columnspan = 3)
+
+divi=Button(frame,text='/',width=3,command=lambda:botones("/"))
+divi.grid(column=5,row=3)
+
+multi=Button(frame,text='*',width=3,command=lambda:botones("*"))
+multi.grid(column=4,row=3)
+
+decimal=Button(frame,text='.',width=3,command=lambda:botones('.'))
+decimal.grid(column=2,row=5)
+
+elevar=Button(frame,text='^',width=3,command=lambda:botones('**'))
+elevar.grid(column=4,row=2)
+
+seno=Button(frame,text='sin',width=3,command=sin)
+seno.grid(column=4,row=6)
+
+coseno=Button(frame,text='cos',width=3,command=cos)
+coseno.grid(column=5,row=6)
+
+tangente=Button(frame,text='tan',width=3,command=tan)
+tangente.grid(column=3,row=6)
+
+sec=Button(frame,text='sec',width=3,command=sec)
+sec.grid(column=4,row=7)
+
+csc=Button(frame,text='csc',width=3,command=csc)
+csc.grid(column=5,row=7)
+
+cot=Button(frame,text='cot',width=3,command=cot)
+cot.grid(column=3,row=7)
+
+
+ventana.mainloop()
